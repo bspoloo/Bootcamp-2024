@@ -1,0 +1,20 @@
+.image-dark {
+    background-image: url('../images/logoDark.png');
+    background-size: contain; /* Ajusta el tamaño de la imagen de fondo para que quepa en el contenedor */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-position: center; /* Centra la imagen */
+    padding-top: 100%; /* Ajusta según la proporción de la imagen */
+}
+.image-mage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.image-mage img {
+    width: 100%; /* La imagen se ajustará al ancho del contenedor */
+    height: 100%; /* La imagen se ajustará al alto del contenedor */
+}

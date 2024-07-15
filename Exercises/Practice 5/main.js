@@ -1,10 +1,17 @@
 class Seat {
     #isAvailable
-    constructor() {
+    #ubiX;
+    #ubiY;
+    constructor(X, Y) {
         this.#isAvailable = false;
+        this.#ubiX = X;
+        this.#ubiY = Y;
+        
     }
     GetIsAvaible(){ return this.#isAvailable; }
     SetIsAvaible(){ this.#isAvailable = !this.#isAvailable; }
+    GetUbiX(){ return this.#ubiX; }
+    GetUbiY(){ return this.#ubiY; }
 }
 class Manager{
     constructor(){
@@ -14,7 +21,7 @@ class Manager{
         for(let i = 0; i < rows; i++){
             const row = [];
             for(let j = 0; j < columns; j++){
-                row.push(new Seat());
+                row.push(new Seat(i,j));
             }
             seats.push(row);
         }
@@ -44,14 +51,13 @@ class Cinema {
     }
     showCine() {
         for(let row = 0; row < this.#rows; row++){
-            console.log(this.#seats[row].map(seat => seat.GetIsAvaible() ? 'X' : 'O').join(' '));
+            console.log(this.#seats[row].map(seat =>  `[${seat.GetUbiX()}-${seat.GetUbiY()}]${seat.GetIsAvaible() ? 'X' : 'O'}`).join(' '));
         }
     }
     validateEspace(column, row){
         return row >= 0 && row < this.#rows && column >= 0 && column < this.#columns;
     }
 }
-
 const cine = new Cinema(5, 5);
 cine.reserve(2, 2);
 cine.reserve(1, 2);

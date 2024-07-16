@@ -22,14 +22,43 @@ function getImageID(id) {
     return imageString.slice(-3);
 }
 
-function generateButtons(poke1,poke2,poke3){
-    const container = document.getElementById('container');
+async function generateButtons(number, pokemonId) {
+    let buttons = [];
+    let randoms = [];
+    html = ``;
 
-    container.innerHTML = `
-        <button onclick="search()">${poke1}</button>
-        <button onclick="search()">${poke2}</button>
-        <button onclick="search()">${poke3}</button>
-    `;
+    for (let i = 0; i < number; i++) {
+        let randomId = Math.floor(Math.random() * 1000) + 1;
+
+        randoms.push(randomId);
+
+        buttons.push(getPokemon2(randomId).then(name => {
+            return `<button onclick="guessPokemon(${randomId}, ${pokemonId})">${name}</button>`;
+        }));
+    }
+    // Añadir el botón específico con pokemonId en una posición aleatoria
+    let specificButton = await getPokemon2(pokemonId).then(name => {
+        return `<button onclick="guessPokemon(${pokemonId}, ${pokemonId})">${name}</button>`;
+    });
+
+    let randomIndex = Math.floor(Math.random() * (number + 1));
+    buttons.splice(randomIndex, 0, specificButton);
+
+    const resolvedButtons = await Promise.all(buttons);
+    const containerButtons = document.getElementById('guess-pokemon');
+    containerButtons.innerHTML = resolvedButtons.join('');
+}
+function guessPokemon(randomId, pokemonId) {
+    var container = document.getElementById("result");
+    var buttons = document.getElementById("guess-pokemon");
+    if (randomId == pokemonId) {
+        let pokeImage = document.getElementById(`pokeImage${pokemonId}`);
+        buttons.innerHTML = `YOU WIN!!`;
+        pokeImage.style.filter = "brightness(1)";
+        container.innerHTML = `YOU WIN!`;
+    } else {
+        container.innerHTML = `YOU LOSE!`;
+    }
 }
 
 function search() {
@@ -40,12 +69,13 @@ function search() {
         if (data) {
             const pokemonInfoDiv = document.getElementById('pokemon-info');
             pokemonInfoDiv.innerHTML = `
-          <img class ="hide" src= ${"https://assets.pokemon.com/assets/cms2/img/pokedex/detail/" + id + ".png"}>
+          <img class ="hide" id="pokeImage${pokemonId}" src= ${"https://assets.pokemon.com/assets/cms2/img/pokedex/detail/" + id + ".png"}>
           <p>Height: ${data.height}</p>
           <p>Weight: ${data.weight}</p>
           <p>Type: ${data.types.map(typeInfo => typeInfo.type.name).join(', ')}</p>
         `;
         }
     });
-    generateButtons("1","2","3");
+
+    generateButtons(10, pokemonId);
 }

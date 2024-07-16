@@ -11,4 +11,4 @@ function capitalizeStrings(inputObj) {
     }
     return newObj;
 }
-console.log(capitalizeStrings(inputObj)); // { name: 'JHON', age: '25', city: 'NEW YORK' }
+console.log(capitalizeStrings(inputObj));

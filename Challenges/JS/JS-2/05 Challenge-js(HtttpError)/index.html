@@ -1,0 +1,11 @@
+<script src="./HttpError.js"></script>
+<h1 id="user">
+    User is here!
+</h1>
+<script>
+    demoGithubUser().then(user => {
+            document.getElementById('user').innerHTML = `User is ${user.login}`;
+        }).catch(error => {
+            console.error('Unexpected error:', error);
+        });
+</script>

@@ -6,3 +6,4 @@ let promise = new Promise(function(resolve, reject){
 
 // promise.then(alert);
 promise.then(console.log);
+

@@ -1,4 +1,4 @@
-/*Borders*/
+/*Borders */
 .border-black{
     border: 10px solid;
     border-image: linear-gradient(45deg, rgb(107, 107, 114), #333231, rgb(95, 95, 104), #837f79) 1;

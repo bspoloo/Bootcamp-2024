@@ -4,7 +4,6 @@ class LeastFrequent{
     }
     FindLeasFrecuent(){
         let leastFrequent = null;
-        let minCount = Infinity;
         var book = this.FullBook(); 
 
         for (let i = 0; i < this.array.length; i++) {

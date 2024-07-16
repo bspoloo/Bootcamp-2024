@@ -1,3 +1,4 @@
+//class HttpError
 class HttpError extends Error {
     constructor(response) {
         super(`${response.status} for ${response.url}`);

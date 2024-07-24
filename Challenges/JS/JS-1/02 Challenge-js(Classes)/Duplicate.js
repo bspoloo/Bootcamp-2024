@@ -1,4 +1,3 @@
-//Class Duplicates
 class Duplicates {
     constructor(array) {
         this.array = array;
@@ -18,3 +17,4 @@ class Duplicates {
         return book;
     }
 }
+//this class was modified

@@ -17,4 +17,3 @@ class Duplicates {
         return book;
     }
 }
-//this class was modified

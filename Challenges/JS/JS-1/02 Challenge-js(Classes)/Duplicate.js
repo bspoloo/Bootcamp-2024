@@ -1,3 +1,4 @@
+//Class Duplicates
 class Duplicates {
     constructor(array) {
         this.array = array;

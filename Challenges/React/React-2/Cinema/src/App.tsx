@@ -15,7 +15,7 @@ function App() {
     for(let r = 0; r < 5; r++){
       const row: Seat[] = [];
       for(let c = 0; c < 5; c++){
-        row.push({column: String.fromCharCode(65+c), row: r+1});
+        row.push({column: String.fromCharCode(65+c), row: r});
       }
       seats.push(row);
     }

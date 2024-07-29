@@ -16,7 +16,7 @@ function PokeImage({ imageData, nameData }: data) {
     }, [imageData, nameData])
 
     return <>
-        <div>
+        <div className="logo">
             <img src={image} alt={name} />
         </div>
     </>

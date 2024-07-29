@@ -15,7 +15,7 @@ function PokeName({ idPokemon, namePokemon }: data) {
         setName(namePokemon => namePokemon)
     }, [idPokemon, namePokemon])
     return <>
-        <div>
+        <div className="name">
             <p>#00{id}</p>
             <h1><b>{name}</b></h1>
         </div>

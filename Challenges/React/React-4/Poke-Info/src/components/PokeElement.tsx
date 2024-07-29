@@ -15,8 +15,8 @@ function PokeElement({imageElement, elementPokemon}: data){
     },[imageElement, elementPokemon]);
 
     return<>
-    <div>
-        <img src={image} alt={image} height={70} width={50}/>
+    <div className="element">
+        <img src={image} alt={image} height={40} width={30}/>
         <h2>{element}</h2>
     </div>
     </>

@@ -18,6 +18,8 @@ function App() {
   return (
     <>
       <button onClick={changePokemon}>Get another Pokemon</button>
+      <br />
+      <br />
       <div>
         {pokemon && (
           <Card

@@ -12,8 +12,8 @@ type Pokemon = {
 
 function Card({ id, name, element, imageElement, imagePokemon }: Pokemon) {
     return <>
-        <div>
-            <div>
+        <div className="card">
+            <div className="data">
                 <PokeName idPokemon={id} namePokemon={name} />
                 <PokeElement imageElement={imageElement} elementPokemon={element} />
             </div>

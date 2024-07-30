@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react";
-
+import {useState } from "react";
 
 type data = {
     idPokemon: number,
@@ -7,13 +6,9 @@ type data = {
 }
 
 function PokeName({ idPokemon, namePokemon }: data) {
-    const [id, setId] = useState(idPokemon);
-    const [name, setName] = useState(namePokemon);
+    const [id] = useState(idPokemon);
+    const [name] = useState(namePokemon);
 
-    useEffect(() => {
-        setId(idPokemon => idPokemon)
-        setName(namePokemon => namePokemon)
-    }, [idPokemon, namePokemon])
     return <>
         <div className="name">
             <p>#00{id}</p>

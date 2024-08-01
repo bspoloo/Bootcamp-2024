@@ -1,12 +1,16 @@
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
 import { StyleSheet, Text, View, ActivityIndicator, FlatList, SafeAreaView } from 'react-native';
-import { usePokemon } from './hooks/usePokemon';
 import PokemonCard from './components/Card';
+import { usePokemon } from './hooks/pokemonHook';
+import getType from './functions/getType';
 
 export default function App() {
   const [offset, setOffset] = useState(0);
   const { loading, pokemons } = usePokemon(offset);
+  
+
+
   if (loading) {
     return (
       <View style={styles.container}>
@@ -16,15 +20,16 @@ export default function App() {
     );
   }
 
-  console.log(pokemons.map((pokemon) => pokemon.name));
+  console.log(pokemons.map((pokemon) => pokemon));
   return (
     <SafeAreaView style={styles.container}>
       <FlatList
         data={pokemons}
         keyExtractor={(item) => item.name}
-        renderItem={({ item, index }) => <PokemonCard name={item.name} id={index + 1} />}
+        renderItem={({ item, index }) => <PokemonCard name={item.name} id={index + 1}/>}
         onEndReached={() => setOffset((old) => old + 25)}
-        onEndReachedThreshold={0.5}
+        onEndReachedThreshold={1.5}
+        contentContainerStyle={{ gap: 10 }}
       />
     </SafeAreaView>
   );

@@ -20,8 +20,7 @@ function usePokemon(id: number): { pokemon: any, image: string } {
             .then(() => {
                     const realId = `00${id}`.slice(-3);
                     setImage(`https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${realId}.png`) 
-                }
-            )
+                })
     }, [id])
     return { pokemon, image}
 }

@@ -29,6 +29,7 @@ export default function App() {
         renderItem={({ item, index }) => <PokemonCard name={item.name} id={index + 1}/>}
         onEndReached={() => setOffset((old) => old + 25)}
         onEndReachedThreshold={1.5}
+        numColumns={2}
         contentContainerStyle={{ gap: 10 }}
       />
     </SafeAreaView>

@@ -7,16 +7,14 @@ type data = {
 
 function PokeImage({ imageData, nameData }: data) {
 
-    const [image, setImage] = useState(imageData)
-    const [name, setName] = useState(nameData)
+    const [image] = useState(imageData)
+    const [name] = useState(nameData)
 
     useEffect(() => {
-        setImage(imageData => imageData);
-        setName(nameData => nameData);
     }, [imageData, nameData])
 
     return <>
-        <div>
+        <div className="logo">
             <img src={image} alt={name} />
         </div>
     </>
